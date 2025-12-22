@@ -1,0 +1,47 @@
+{
+  "name": "@snow-tzu/audit",
+  "version": "0.0.3",
+  "description": "Transparent audit tracking for object field changes in TypeScript applications",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "build:benchmarks": "cd benchmarks && tsc",
+    "benchmark": "yarn build && yarn build:benchmarks && node benchmarks/dist/index.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint src/**/*.ts tests/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts tests/**/*.ts --fix",
+    "clean": "rm -rf dist benchmarks/dist",
+    "prepublishOnly": "yarn clean && yarn build && yarn test"
+  },
+  "keywords": [
+    "audit",
+    "tracking",
+    "typescript",
+    "proxy",
+    "decorator"
+  ],
+  "author": "snow-tzu",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@types/node": "^18.15.0",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "@typescript-eslint/parser": "^5.57.0",
+    "eslint": "^8.37.0",
+    "fast-check": "^3.8.0",
+    "jest": "^29.5.0",
+    "jest-util": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.0.0"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ganesanarun/type-audit.git"
+  }
+}

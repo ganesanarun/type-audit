@@ -1,0 +1,61 @@
+### Create a user with company (demonstrates transaction-based audit tracking)
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "phone": "+1-555-0123",
+  "companyName": "Acme Corporation",
+  "companyIndustry": "Technology",
+  "companyDescription": "Leading software development company"
+}
+
+### Create another user without company
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "Jane Smith",
+  "email": "jane.smith@example.com",
+  "phone": "+1-555-0456"
+}
+
+### Update user (demonstrates field-level audit tracking)
+PUT http://localhost:3000/users/1
+Content-Type: application/json
+
+{
+  "name": "John Smith",
+  "email": "john.smith@acme.com",
+  "phone": "+1-555-9999"
+}
+
+### Update user with company details (demonstrates company update tracking)
+PUT http://localhost:3000/users/1
+Content-Type: application/json
+
+{
+  "name": "John Smith Jr.",
+  "companyName": "Acme Technologies Inc.",
+  "companyIndustry": "Software Development",
+  "companyDescription": "Leading enterprise software solutions provider"
+}
+
+### Get all users
+GET http://localhost:3000/users
+
+### Get specific user
+GET http://localhost:3000/users/1
+
+### Get all audit logs
+GET http://localhost:3000/audit-logs
+
+### Get audit logs with filters
+GET http://localhost:3000/audit-logs?entityType=User&limit=10
+
+### Get audit logs for specific entity
+GET http://localhost:3000/audit-logs/entity/User/1
+
+### Get audit logs for specific transaction (replace with actual transaction ID)
+GET http://localhost:3000/audit-logs/transaction/txn_1703123456789_abc123def

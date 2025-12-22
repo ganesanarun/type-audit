@@ -1,0 +1,1 @@
+export { MetadataManagerImpl, metadataManager } from './MetadataManager';
